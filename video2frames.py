@@ -26,7 +26,7 @@ def convert(path):
     
         if ret:
             # if video is still left continue creating images
-            name = './data/frame' + str(currentframe) + '.jpg'
+            name = './dataset/frame' + str(currentframe) + '.jpg'
             print ('Creating...' + name)
     
             # writing the extracted images
