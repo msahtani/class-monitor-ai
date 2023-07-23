@@ -2,7 +2,7 @@ from flask import *
 from video2frames import *
 
 # initialize the flask app
-app = Flask(__name__) 
+app = Flask(__name__, static_url_path="/static") 
 
 
 # define the / route that render the index.html
@@ -10,7 +10,11 @@ app = Flask(__name__)
 def main():  
     return render_template("index.html") 
 
-#   
+
+@app.route('/test')  
+def test():  
+    return render_template("test.html") 
+
 @app.route('/process', methods = ['POST'])  
 def success():  
     if request.method != 'POST':
@@ -18,7 +22,7 @@ def success():
     
     # get the uploaded file
     file = request.files['file']
-    file_path = "uploads" + file.filename
+    file_path = "dataset" + file.filename
     # save the file to defined path
     file.save(file_path)
     # convert the video into frames
