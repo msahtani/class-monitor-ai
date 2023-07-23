@@ -5,6 +5,8 @@ from video2frames import *
 app = Flask(__name__, static_url_path="/static") 
 
 
+
+
 # define the / route that render the index.html
 @app.route('/')  
 def main():  
